@@ -1,3 +1,38 @@
+<?php
+session_start();
+extract($_POST);
+$con=mysqli_connect('localhost','root','','saferental');
+
+
+if(isset($_GET['qwi'])=="r")
+{
+$ps="
+            <div class='alert alert-warning alert-dismissable' style='margin-top:20px'>
+            <button type='button' class='close' data-dismiss='alert' aria-hidden='true'>×</button>
+            <h4><i class='icon glyphicon glyphicon-ok'></i> Please Check Email !</h4> Username and Password have been sent
+            </div>
+        ";
+        echo $ps; 
+}
+
+if(isset($login)){
+    if(mysqli_num_rows(mysqli_query($con,"select id from admin where username='$username' and password='$password'")))
+    {
+        $tipe=mysqli_fetch_row(mysqli_query($con,"select id from admin where username='$username' and password='$password'"));
+        $_SESSION['kosong']=$tipe[0];
+        header("location:./");
+    }
+    else
+        $ps="
+            <div class='alert alert-warning alert-dismissable' style='margin-top:20px'>
+            <button type='button' class='close' data-dismiss='alert' aria-hidden='true'>×</button>
+            <h4><i class='icon glyphicon glyphicon-remove'></i> Wrong !</h4> Wrong username or password :(
+            </div>
+        ";
+        echo $ps;
+}
+?>
+
 <!doctype html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
@@ -15,8 +50,8 @@
         <link rel="stylesheet" href="assets/css/i-plugins.css" />
         <link rel="stylesheet" href="assets/css/i-style.css">
         <link rel="stylesheet" href="assets/css/i-responsive.css" />
-        <link rel="stylesheet" href="login/assets/style.css">
-        <link rel="shortcut icon" href="logo.ico">
+        <link rel="stylesheet" href="assets/css/l-style.css">
+        <link rel="shortcut icon" href="assets/logo.ico">
         <script src="assets/js/vendor/i-modernizr-2.8.3-respond-1.4.2.min.js"></script>
 
 
@@ -832,9 +867,9 @@
         <script src="assets/js/vendor/i-bootstrap.min.js"></script>
         <script src="assets/js/i-plugins.js"></script>
         <script src="assets/js/i-main.js"></script>
-        <script src="login/assets/jquery.min.js"></script>
-        <script src="login/assets/js/bootstrap.min.js"></script> 
-        <script src="login/assets/parsley.min.js"></script>
-        <script src="login/assets/modal.js"></script> 
+        <script src="assets/l-jquery.min.js"></script>
+        <script src="assets/js/bootstrap.min.js"></script> 
+        <script src="assets/l-parsley.min.js"></script>
+        <script src="assets/l-modal.js"></script> 
     </body>
 </html>
