@@ -378,7 +378,7 @@ if(isset($login)){
                                 <li><i class="fa fa-check"></i> 7 Seat</li>
                             </ul>
                             <h6 class="text-primary">Rp. 500.000 <span>24 jam</span></h6>
-                            <a href="detail-mobil.php" class="btn pt-btn btn-primary btn-block ">Book Now</a>
+                            <a href="home/detail-mobil.php" class="btn pt-btn btn-primary btn-block ">Book Now</a>
                         </div>
                     </div>
                     <div class="col-sm-6 col-md-3">
@@ -394,7 +394,7 @@ if(isset($login)){
                             </ul>
                             </ul>
                             <h6 class="text-primary">Rp. 550.000 <span>24 jam</span></h6>
-                            <a href="detail-mobil.php" class="btn pt-btn btn-primary btn-block ">Book Now</a>
+                            <a href="home/detail-mobil.php" class="btn pt-btn btn-primary btn-block ">Book Now</a>
                         </div>
                     </div>
                     <div class="col-sm-6 col-md-3">
@@ -409,7 +409,7 @@ if(isset($login)){
                                 <li><i class="fa fa-check"></i> 8 Seat</li>
                             </ul>
                             <h6 class="text-primary">Rp. 1.000.000 <span>24 jam</span></h6>
-                            <a href="detail-mobil.php" class="btn pt-btn btn-primary btn-block ">Book Now</a>
+                            <a href="home/detail-mobil.php" class="btn pt-btn btn-primary btn-block ">Book Now</a>
                         </div>
                     </div>
                     <div class="col-sm-6 col-md-3">
@@ -424,13 +424,13 @@ if(isset($login)){
                                 <li><i class="fa fa-check"></i> 4 Seat</li>
                             </ul>
                             <h6 class="text-primary">Rp. 400.000 <span>24 jam</span></h6>
-                            <a href="detail-mobil.php" class="btn pt-btn btn-primary btn-block ">Book Now</a>
+                            <a href="home/detail-mobil.php" class="btn pt-btn btn-primary btn-block ">Book Now</a>
                         </div>
                     </div>
                     <div class="portfolio">
                         <div class="col-md-12 col-sm-12 col-xs-12">
                         <div class="portfolio-item" align="CENTER">
-                            <a class="btn pt-btn btn-primary" href="daftar-mobil.html">Lihat Daftar Mobil Selengkapnya</a>
+                            <a class="btn pt-btn btn-primary" href="home/daftar-mobil.php">Lihat Daftar Mobil Selengkapnya</a>
                         </div>
                     </div>
                     </div>
@@ -462,7 +462,7 @@ if(isset($login)){
                             <img src="assets/images/map.png" alt="" />
                         </div><br>
                         <div>  
-                            <a class="btn pt-btn btn-primary" href="cara-pesan.php">Lihat Selengkapnya</a>
+                            <a class="btn pt-btn btn-primary" href="home/cara-pesan.php">Lihat Selengkapnya</a>
                         </div>
                     </div>
                 </div>	
