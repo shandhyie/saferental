@@ -332,55 +332,50 @@ include "includes/koneksi.php";
                             <img class="hidden-xs" src="assets/images/right-arrow.png" alt="" />
                         </div>
                     </div>	
-
-
-                    <!-- Example row of columns -->
-                    <div class="col-sm-6 col-md-3">
-                        <?php
-                          $sql = "select mobil.no_stnk, merek_mobil.nama, merek_mobil.manufaktur, mobil.harga, mobil.file_gambar_mobil, mobil.fitur_id from mobil, merek_mobil where merek_mobil.id = mobil.id_mobil";
-                          $result = mysql_query($sql);
-                          while($data = mysql_fetch_assoc($result)){
-                            $cname = '.'.$data['manufaktur'].'-'.$data['nama'];
-                            $text = $data['manufaktur'].' '.$data['nama'];
-                            
-                            echo '<li><a href="#" data-filter="'.$cname.'">'.$text.'</a></li>';
-                          }
-                        ?>
-                        <div class="thumbnail text-left">
-                            <?php
+<?php
+                                 $sql = "select mobil.no_stnk, merek_mobil.nama, merek_mobil.manufaktur, mobil.harga, mobil.file_gambar_mobil, mobil.fitur_id from mobil, merek_mobil where merek_mobil.id = mobil.id_mobil";
                                 $result = mysql_query($sql);
                                 while($data = mysql_fetch_assoc($result)){
                                   $cname = $data['manufaktur'].'-'.$data['nama'];
                                   $text = $data['manufaktur'].' '.$data['nama'];
 
                                 ?>
-                        <img src="assets/images/mobil/?php echo $data['file_gambar_mobil'] ?>" class="img-responsive" alt="htc image"/>
-                            <br/>
-                            <h5 class="text-primary text-center"><?php echo $text ?></h5>
-                            <ul>
-                                <?php
-                                    $arno = explode(",",$data['fitur_id']);
-                                    $sql = "select * from fitur";
-                                    $resultf = mysql_query($sql);
-                                    while($dataf = mysql_fetch_assoc($resultf)){
-                                      $no = $dataf['id_fitur'];
-                                      $namafitur = $dataf['nama'];
-                                  
-                                      //mengecek apakah fitur dimiliki mobil
-                                      if(in_array($no,$arno)) echo '<li><i class="fa fa-check"></i>'.$namafitur.'</li>';
-                                      else echo '<li><i class="fa fa-times"></i>'.$namafitur.'</li>';
-                                    }
-                                  ?>          
-                            </ul>
-                            <h6 class="text-primary">Rp.<?php echo number_format($data['harga'],2,',','.')?><span>24 jam</span></h6>
-                            <a href="home/detail-mobil.php" class="btn pt-btn btn-primary btn-block ">Book Now</a>
+                    <!-- Example row of columns -->
+                    <div class="col-sm-6 col-md-3">
+                            
+                        <div class="thumbnail text-left">                            
+                            <img src="assets/images/<?php echo $data['file_gambar_mobil'] ?>" class="img-responsive" alt="htc image"/>
+                                <br/>
+                                <h5 class="text-primary text-center"><?php echo $text ?></h5>
+                                <ul>
+                                    <?php
+                                        $arno = explode(",",$data['fitur_id']);
+                                        $sql = "select * from fitur";
+                                        $resultf = mysql_query($sql);
+                                        while($dataf = mysql_fetch_assoc($resultf)){
+                                          $no = $dataf['id_fitur'];
+                                          $namafitur = $dataf['nama'];
+                                      
+                                          //mengecek apakah fitur dimiliki mobil
+                                          if(in_array($no,$arno)) echo '<li><i class="fa fa-check"></i>'.$namafitur.'</li>';
+                                          else echo '<li><i class="fa fa-times"></i>'.$namafitur.'</li>';
+                                        }
+                                      ?>          
+                                </ul>
+                            <h6 class="text-primary">Rp.<?php echo number_format($data['harga'],2,',','.')?><span>/24 jam</span></h6>
+                            <a href="home/detail-mobil.php" class="btn pt-btn btn-primary btn-block ">Book Now</a><br>
                         </div>
-                        <?php
-                            }
-
-                        ?>
+                       
                     </div>
-                    
+                     <?php
+                           }
+                        ?>
+                    <div class="portfolio">
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                        <div class="portfolio-item" align="CENTER">
+                            <a class="btn pt-btn btn-primary" href="home/daftar-mobil.php">Lihat Daftar Mobil Selengkapnya</a>
+                        </div>
+                    </div>
             </div>
         </div>
 

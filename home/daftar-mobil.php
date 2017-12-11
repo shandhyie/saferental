@@ -42,7 +42,7 @@ include "web_menu.php";
       <ul class="nav nav-pills" id="filters">
         <li class="active"><a href="#" data-filter="*">All</a></li>
         <?php
-      $sql = "select mobil.no_stnk, merek_mobil.nama, merek_mobil.manufaktur, mobil.harga, mobil.file_gambar_mobil, mobil.fitur_id from mobil, merek_mobil where merek_mobil.id = mobil.id_mobil";
+      $sql = "select mobil.no_stnk, merek_mobil.nama, merek_mobil.manufaktur, merek_mobil.jml_kursi, mobil.harga, mobil.file_gambar_mobil, mobil.fitur_id from mobil, merek_mobil where merek_mobil.id = mobil.merek_mobil_id";
       $result = mysql_query($sql);
       while($data = mysql_fetch_assoc($result)){
         $cname = '.'.$data['manufaktur'].'-'.$data['nama'];
@@ -76,29 +76,29 @@ include "web_menu.php";
                   <div class="price">Rp. <?php echo number_format($data['harga'],2,',','.')?><span>24 jam</span></div>
                 </div>
                 <div class="content">
-                  <p><span>Keterangan</p>
+                  <p><span>Fitur</p>
                   <div class="row">
                     <div class="col-xs-6">
                       <ul class="list-unstyled">
-        <?php
-          $arno = explode(",",$data['fitur_id']);
-          $sql = "select * from fitur";
-          $resultf = mysql_query($sql);
-          while($dataf = mysql_fetch_assoc($resultf)){
-            $no = $dataf['id_fitur'];
-            $namafitur = $dataf['nama'];
-        
-            //mengecek apakah fitur dimiliki mobil
-            if(in_array($no,$arno)) echo '<li><i class="fa fa-check"></i>'.$namafitur.'</li>';
-            else echo '<li><i class="fa fa-times"></i>'.$namafitur.'</li>';
-          }
-        ?>          
-              </ul>
+                      <?php
+                        $arno = explode(",",$data['fitur_id']);
+                        $sql = "select * from fitur";
+                        $resultf = mysql_query($sql);
+                        while($dataf = mysql_fetch_assoc($resultf)){
+                          $no = $dataf['id_fitur'];
+                          $namafitur = $dataf['nama'];
+                      
+                          //mengecek apakah fitur dimiliki mobil
+                          if(in_array($no,$arno)) echo '<li><i class="fa fa-check"></i>'.$namafitur.'</li>';
+                          else echo '<li><i class="fa fa-times"></i>'.$namafitur.'</li>';
+                        }
+                      ?>          
+                    </ul>
                     </div>
                     <div class="col-xs-6">
                       <ul class="list-unstyled">
-                        <li><i class="fa fa-times-circle"></i> No sleepy </li>
-                        <li><i class="fa fa-check-circle"></i> Safety</li>
+                        <li><i class="fa fa-check"></i> No sleepy </li>
+                        <li><i class="fa fa-check"></i> Safety</li>
                       </ul>
                     </div>
                   </div>
