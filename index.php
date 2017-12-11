@@ -1,36 +1,5 @@
 <?php
-session_start();
-extract($_POST);
-$con=mysqli_connect('localhost','root','','saferental');
-
-
-if(isset($_GET['qwi'])=="r")
-{
-$ps="
-            <div class='alert alert-warning alert-dismissable' style='margin-top:20px'>
-            <button type='button' class='close' data-dismiss='alert' aria-hidden='true'>×</button>
-            <h4><i class='icon glyphicon glyphicon-ok'></i> Please Check Email !</h4> Username and Password have been sent
-            </div>
-        ";
-        echo $ps; 
-}
-
-if(isset($login)){
-    if(mysqli_num_rows(mysqli_query($con,"select id from admin where username='$username' and password='$password'")))
-    {
-        $tipe=mysqli_fetch_row(mysqli_query($con,"select id from admin where username='$username' and password='$password'"));
-        $_SESSION['kosong']=$tipe[0];
-        header("location:./");
-    }
-    else
-        $ps="
-            <div class='alert alert-warning alert-dismissable' style='margin-top:20px'>
-            <button type='button' class='close' data-dismiss='alert' aria-hidden='true'>×</button>
-            <h4><i class='icon glyphicon glyphicon-remove'></i> Wrong !</h4> Wrong username or password :(
-            </div>
-        ";
-        echo $ps;
-}
+include "includes/koneksi.php";
 ?>
 
 <!doctype html>
@@ -367,74 +336,51 @@ if(isset($login)){
 
                     <!-- Example row of columns -->
                     <div class="col-sm-6 col-md-3">
+                        <?php
+                          $sql = "select mobil.no_stnk, merek_mobil.nama, merek_mobil.manufaktur, mobil.harga, mobil.file_gambar_mobil, mobil.fitur_id from mobil, merek_mobil where merek_mobil.id = mobil.id_mobil";
+                          $result = mysql_query($sql);
+                          while($data = mysql_fetch_assoc($result)){
+                            $cname = '.'.$data['manufaktur'].'-'.$data['nama'];
+                            $text = $data['manufaktur'].' '.$data['nama'];
+                            
+                            echo '<li><a href="#" data-filter="'.$cname.'">'.$text.'</a></li>';
+                          }
+                        ?>
                         <div class="thumbnail text-left">
-                        <img src="assets/images/mobil/avanza1.png" class="img-responsive" alt="htc image"/>
+                            <?php
+                                $result = mysql_query($sql);
+                                while($data = mysql_fetch_assoc($result)){
+                                  $cname = $data['manufaktur'].'-'.$data['nama'];
+                                  $text = $data['manufaktur'].' '.$data['nama'];
+
+                                ?>
+                        <img src="assets/images/mobil/?php echo $data['file_gambar_mobil'] ?>" class="img-responsive" alt="htc image"/>
                             <br/>
-                            <h5 class="text-primary text-center">Toyota Avanza</h5>
+                            <h5 class="text-primary text-center"><?php echo $text ?></h5>
                             <ul>
-                                <li><i class="fa fa-times"></i> Include BBB</li>
-                                <li><i class="fa fa-check"></i> Supir</li>
-                                <li><i class="fa fa-check"></i> Dalam dan Luar Kota</li>
-                                <li><i class="fa fa-check"></i> 7 Seat</li>
+                                <?php
+                                    $arno = explode(",",$data['fitur_id']);
+                                    $sql = "select * from fitur";
+                                    $resultf = mysql_query($sql);
+                                    while($dataf = mysql_fetch_assoc($resultf)){
+                                      $no = $dataf['id_fitur'];
+                                      $namafitur = $dataf['nama'];
+                                  
+                                      //mengecek apakah fitur dimiliki mobil
+                                      if(in_array($no,$arno)) echo '<li><i class="fa fa-check"></i>'.$namafitur.'</li>';
+                                      else echo '<li><i class="fa fa-times"></i>'.$namafitur.'</li>';
+                                    }
+                                  ?>          
                             </ul>
-                            <h6 class="text-primary">Rp. 500.000 <span>24 jam</span></h6>
+                            <h6 class="text-primary">Rp.<?php echo number_format($data['harga'],2,',','.')?><span>24 jam</span></h6>
                             <a href="home/detail-mobil.php" class="btn pt-btn btn-primary btn-block ">Book Now</a>
                         </div>
+                        <?php
+                            }
+
+                        ?>
                     </div>
-                    <div class="col-sm-6 col-md-3">
-                        <div class="thumbnail text-left">
-                        <img src="assets/images/mobil/innova1.png" class="img-responsive" alt="htc image"/>
-                            <br/>
-                            <h5 class="text-primary text-center">Toyota Innova</h5>
-                            <ul>
-                                <li><i class="fa fa-check"></i> Include BBB</li>
-                                <li><i class="fa fa-times"></i> Supir</li>
-                                <li><i class="fa fa-check"></i> Dalam dan Luar Kota</li>
-                                <li><i class="fa fa-check"></i> 7 Seat</li>
-                            </ul>
-                            </ul>
-                            <h6 class="text-primary">Rp. 550.000 <span>24 jam</span></h6>
-                            <a href="home/detail-mobil.php" class="btn pt-btn btn-primary btn-block ">Book Now</a>
-                        </div>
-                    </div>
-                    <div class="col-sm-6 col-md-3">
-                        <div class="thumbnail text-left">
-                        <img src="assets/images/mobil/alphard1.png" class="img-responsive" alt="htc image"/>
-                            <br/>
-                            <h5 class="text-primary text-center">Toyota Alphard</h5>
-                            <ul>
-                                <li><i class="fa fa-times"></i> Include BBB</li>
-                                <li><i class="fa fa-check"></i> Supir</li>
-                                <li><i class="fa fa-check"></i> Luar Kota</li>
-                                <li><i class="fa fa-check"></i> 8 Seat</li>
-                            </ul>
-                            <h6 class="text-primary">Rp. 1.000.000 <span>24 jam</span></h6>
-                            <a href="home/detail-mobil.php" class="btn pt-btn btn-primary btn-block ">Book Now</a>
-                        </div>
-                    </div>
-                    <div class="col-sm-6 col-md-3">
-                        <div class="thumbnail text-left">
-                        <img src="assets/images/mobil/jazz1.png" class="img-responsive" alt="htc image"/>
-                            <br/>
-                            <h5 class="text-primary text-center">Honda Jazz</h5>
-                            <ul>
-                                <li><i class="fa fa-check"></i> Include BBB</li>
-                                <li><i class="fa fa-check"></i> Supir</li>
-                                <li><i class="fa fa-check"></i> Dalam Kota</li>
-                                <li><i class="fa fa-check"></i> 4 Seat</li>
-                            </ul>
-                            <h6 class="text-primary">Rp. 400.000 <span>24 jam</span></h6>
-                            <a href="home/detail-mobil.php" class="btn pt-btn btn-primary btn-block ">Book Now</a>
-                        </div>
-                    </div>
-                    <div class="portfolio">
-                        <div class="col-md-12 col-sm-12 col-xs-12">
-                        <div class="portfolio-item" align="CENTER">
-                            <a class="btn pt-btn btn-primary" href="home/daftar-mobil.php">Lihat Daftar Mobil Selengkapnya</a>
-                        </div>
-                    </div>
-                    </div>
-                </div>
+                    
             </div>
         </div>
 

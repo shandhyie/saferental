@@ -21,8 +21,8 @@ include "web_menu.php";
         <div class="row">
           <div class="col-sm-12">
             <ol class="breadcrumb">
-              <li><a href="../index.html">Beranda</a></li>
-              <li><a href="../daftar-mobil.html">Daftar Mobil Tersedia</a></li>
+              <li><a href="../index.php">Beranda</a></li>
+              <li><a href="daftar-mobil.php">Daftar Mobil Tersedia</a></li>
               <li class="active">Detail Mobil</li>
             </ol>
             <h1>Detail Mobil</h1>
