@@ -29,9 +29,9 @@ include "includes/koneksi.php";
         <!--[if lt IE 8]>
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
-		
-		<div class='preloader'><div class='loaded'>&nbsp;</div></div>
-        <div id="menubar" class="main-menu">	
+        
+        <div class='preloader'><div class='loaded'>&nbsp;</div></div>
+        <div id="menubar" class="main-menu">    
             <nav class="navbar navbar-default navbar-fixed-top">
                 <div class="container">
                     <!-- Brand and toggle get grouped for better mobile display -->
@@ -137,7 +137,7 @@ include "includes/koneksi.php";
                             </div>
                         </div>
 
-                    </div>	
+                    </div>  
                 </div>
 
             </div>
@@ -201,14 +201,13 @@ include "includes/koneksi.php";
                             <h4 class="">Mobil Yang Kami Punya</h4>
                             <img class="hidden-xs" src="assets/images/right-arrow.png" alt="" />
                         </div>
-                    </div>	
+                    </div>  
 <?php
                                  $sql = "select mobil.no_stnk, merek_mobil.nama, merek_mobil.manufaktur, mobil.harga, mobil.file_gambar_mobil, mobil.fitur_id from mobil, merek_mobil where merek_mobil.id = mobil.id_mobil";
                                 $result = mysql_query($sql);
                                 while($data = mysql_fetch_assoc($result)){
                                   $cname = $data['manufaktur'].'-'.$data['nama'];
                                   $text = $data['manufaktur'].' '.$data['nama'];
-
                                 ?>
                     <!-- Example row of columns -->
                     <div class="col-sm-6 col-md-3">
@@ -233,7 +232,7 @@ include "includes/koneksi.php";
                                       ?>          
                                 </ul>
                             <h6 class="text-primary">Rp.<?php echo number_format($data['harga'],2,',','.')?><span>/24 jam</span></h6>
-                            <a href="home/detail-mobil.php" class="btn pt-btn btn-primary btn-block ">Book Now</a><br>
+                            <a href="home/user/detail-mobil.php" class="btn pt-btn btn-primary btn-block ">Book Now</a><br>
                         </div>
                        
                     </div>
@@ -243,7 +242,7 @@ include "includes/koneksi.php";
                     <div class="portfolio">
                         <div class="col-md-12 col-sm-12 col-xs-12">
                         <div class="portfolio-item" align="CENTER">
-                            <a class="btn pt-btn btn-primary" href="home/daftar-mobil.php">Lihat Daftar Mobil Selengkapnya</a>
+                            <a class="btn pt-btn btn-primary" href="home/user/daftar-mobil.php">Lihat Daftar Mobil Selengkapnya</a>
                         </div>
                     </div>
             </div>
@@ -265,7 +264,7 @@ include "includes/koneksi.php";
 
                         <h4 class="">Cara Pesan Mobil</h4>
                     </div>
-                </div>	
+                </div>  
 
                 <div class="row">
                     <div class="col-md-12 col-sm-12 col-xs-12">
@@ -273,10 +272,10 @@ include "includes/koneksi.php";
                             <img src="assets/images/map.png" alt="" />
                         </div><br>
                         <div>  
-                            <a class="btn pt-btn btn-primary" href="home/cara-pesan.php">Lihat Selengkapnya</a>
+                            <a class="btn pt-btn btn-primary" href="home/user/cara-pesan.php">Lihat Selengkapnya</a>
                         </div>
                     </div>
-                </div>	
+                </div>  
             </div>
         </section>
 
@@ -284,24 +283,17 @@ include "includes/koneksi.php";
 <!--
         <section id="our-package" class="sections lightbg">
             <div class="container">
-
                 <div class="heading">
                     <div class="title text-center arrow-left">
                         <img class="hidden-xs" src="assets/images/left-arrow.png" alt="" />
-
                         <h4 class="">Our Packages</h4>
                     </div>
                 </div>
-
                 <div class="row">
-
-
                     <div class="main-package text-center">
                         <div class="col-md-4 col-sm-12 col-xs-12">
                             <div class="package-item basic">
-
                                 <h5>Basic</h5>
-
                                 <ul>
                                     <li>5 web sites</li>
                                     <li>5 e-mails</li>
@@ -309,23 +301,15 @@ include "includes/koneksi.php";
                                     <li>5 MySQL databases</li>
                                     <li>10 GB storage</li>
                                 </ul>
-
                                 <div class="package-bottom-area">
                                     <h3>$5/<span>mo.</span></h3>
                                 </div>
-
                                 <div class="pkg-btn"><a href="" class="btn btn-primary">ORDER NOW</a></div>
-
                             </div>
-
-
                         </div>
-
                         <div class="col-md-4 col-sm-12 col-xs-12">
                             <div class="package-item standard">
-
                                 <h5>Standard</h5>
-
                                 <ul>
                                     <li>5 web sites</li>
                                     <li>5 e-mails</li>
@@ -333,23 +317,15 @@ include "includes/koneksi.php";
                                     <li>5 MySQL databases</li>
                                     <li>10 GB storage</li>
                                 </ul>
-
                                 <div class="package-bottom-area">
                                     <h3>$12<span>/mo.</span></h3>
                                 </div>
-
                                 <div class="pkg-btn"><a href="" class="btn btn-primary">ORDER NOW</a></div>
-
                             </div>
-
-
                         </div>
-
                         <div class="col-md-4 col-sm-12 col-xs-12">
                             <div class="package-item premium">
-
                                 <h5>Premium</h5>
-
                                 <ul>
                                     <li>5 web sites</li>
                                     <li>5 e-mails</li>
@@ -357,40 +333,28 @@ include "includes/koneksi.php";
                                     <li>5 MySQL databases</li>
                                     <li>10 GB storage</li>
                                 </ul>
-
                                 <div class="package-bottom-area">
                                     <h3>$19<span>/mo.</span></h3>
                                 </div>
-
                                 <div class="pkg-btn"><a href="" class="btn btn-primary">ORDER NOW</a></div>
-
                             </div>
-
-
                         </div>
-
                     </div>
-
-
                 </div>
-            </div>	
+            </div>  
         </section>
 -->
 
 <!--
         <section id="our-project" class="sections main-project text-center">
             <div class="container">
-
                 <div class="heading">
                     <div class="title text-center arrow-left">
-
                         <h4 class="">Our Business Project</h4>
                         <img class="hidden-xs" src="assets/images/right-arrow.png" alt="" />
                     </div>
                 </div>
-
                 <div class="row">
-
                     <div class="main-project text-center">
                         <div class="col-md-3 col-sm-6 col-xs-12">
                             <div class="project-item">
@@ -404,52 +368,43 @@ include "includes/koneksi.php";
                                 <h5>TECHNICAL AID</h5>
                             </div>
                         </div>
-
                         <div class="col-md-3 col-sm-6 col-xs-12">
                             <div class="project-item">
                                 <div class="project-photo"><img src="assets/images/projects/7.png" alt="" /></div>
                                 <h5>TECHNICAL AID</h5>
                             </div>
                         </div>
-
                         <div class="col-md-3 col-sm-6 col-xs-12">
                             <div class="project-item">
                                 <div class="project-photo"><img src="assets/images/projects/8.png" alt="" /></div>
                                 <h5>TECHNICAL AID</h5>
                             </div>
                         </div>
-
                         <div class="col-md-3 col-sm-6 col-xs-12">
                             <div class="project-item">
                                 <div class="project-photo"><img src="assets/images/projects/1.png" alt="" /></div>
                                 <h5>TECHNICAL AID</h5>
                             </div>
                         </div>
-
                         <div class="col-md-3 col-sm-6 col-xs-12">
                             <div class="project-item">
                                 <div class="project-photo"><img src="assets/images/projects/2.png" alt="" /></div>
                                 <h5>SECURE ACCESS</h5>
                             </div>
                         </div>
-
                         <div class="col-md-3 col-sm-6 col-xs-12">
                             <div class="project-item">
                                 <div class="project-photo"><img src="assets/images/projects/3.png" alt="" /></div>
                                 <h5>MARKET RESERCH</h5>
                             </div>
                         </div>
-
                         <div class="col-md-3 col-sm-6 col-xs-12">
                             <div class="project-item">
                                 <div class="project-photo"><img src="assets/images/projects/5.png" alt="" /></div>
                                 <h5>CREDIT RESERCH</h5>
                             </div>
                         </div>
-
                     </div>
-
-
                 </div>
             </div>
         </section>
@@ -532,18 +487,13 @@ include "includes/koneksi.php";
 <!--
         <section id="our-supports" class="sections">
             <div class="container">
-
                 <div class="heading">
                     <div class="title text-center arrow-left">
-
                         <h4 class="">Updates & Support</h4>
                         <img class="hidden-xs" src="assets/images/right-arrow.png" alt="" />
                     </div>
                 </div>
-
                 <div class="row">
-
-
                     <div class="col-sm-6 col-xs-12">
                         <div class="supports-content">
                             <p>
@@ -553,41 +503,29 @@ include "includes/koneksi.php";
                             <div class="spt-btn"><button class="btn btn-primary">SUPPORT CENTER</button></div>
                         </div>
                     </div>
-
                     <div class="col-sm-6 col-xs-12">
                         <div class="supports-img"><img class="img-responsive" src="assets/images/monitor.png" alt="" /></div>
                     </div>
-
-
                 </div>
-
             </div>     
         </section>
 -->
 <!--
         <section id="hire-us" class="sections">
-
             <div class="container">
-
                 <div class="row">
                     <div class="col-md-12 col-sm-12 col-xs-12">
                         <div class="hire-content">
                             <div class="img-overlay">
-
                                 <div class="creative-works">
                                     <h3>NEED CREATIVE WORKERS?</h3>
                                     <button class="btn hire-btn btn-primary">HIRE US</button>
                                 </div>
-
                             </div>
-
                         </div>
-
                     </div>
                 </div>
-
             </div>  
-
         </section>
 -->
 
@@ -668,7 +606,7 @@ include "includes/koneksi.php";
                         <p>Made with <i class="fa fa-heart"></i> by <a target="_blank" href="http://bootstrapthemes.co"> Bootstrap Themes </a>2016. All rights reserved.</p>
                     </div>
 
-                </div>	
+                </div>  
             </div>
 
         </footer>

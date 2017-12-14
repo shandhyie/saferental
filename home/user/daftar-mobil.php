@@ -2,7 +2,7 @@
 <html>
 <html>
 <?php
-include "../includes/koneksi.php";
+include "../../includes/koneksi.php";
 include "web_head.php"
 ?>
 
@@ -23,7 +23,7 @@ include "web_menu.php";
         <div class="row">
           <div class="col-sm-12">
             <ol class="breadcrumb">
-              <li><a href="../index.php">Beranda</a></li>
+              <li><a href="../../index.php">Beranda</a></li>
               <li class="active">Daftar Mobil Tersedia</li>
             </ol>
             <h1>Daftar Mobil Tersedia</h1>
@@ -69,7 +69,7 @@ include "web_menu.php";
 
     ?>
           <div class="col-sm-4 <?php echo $cname ?>">
-            <div class="room-thumb"> <img src="../assets/images/<?php echo $data['file_gambar_mobil'] ?>" alt="room 1" class="img-responsive" />
+            <div class="room-thumb"> <img src="../../assets/images/<?php echo $data['file_gambar_mobil'] ?>" alt="room 1" class="img-responsive" />
               <div class="mask">
                 <div class="main">
                   <h5><?php echo $text ?></h5>

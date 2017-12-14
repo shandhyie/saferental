@@ -22,7 +22,7 @@ include "web_menu.php";
         <div class="row">
           <div class="col-sm-12">
             <ol class="breadcrumb">
-              <li><a href="index.php">Beranda</a></li>
+              <li><a href="../../index.php">Beranda</a></li>
               <li class="active">Cara Pesan</li>
             </ol>
             <h1>Cara Pesan</h1>
@@ -36,30 +36,24 @@ include "web_menu.php";
   <div class="row"> 
     <!-- Pesan -->
     <?php
-    include "web_detail/cara_pesan.php";
+    include "../web_detail/cara_pesan.php";
     ?>
     
-    <!-- Reservation form -->
-    <section id="reservation-form" class="mt50 clearfix">
-      
-    </section>
-    
+    <div class="col-sm-5 mt50">
+            
+            <?php
+            include "../web_detail/syarat_dan_ketentuan.php";
+            ?>
+
+          </div>
     <!-- Room Content -->
     <section>
       <div class="container">
         <div class="row">
 
           <?php
-          include "web_detail/cara_pembayaran.php";
+          include "../web_detail/cara_pembayaran.php";
           ?>
-
-          <div class="col-sm-5 mt50">
-            
-            <?php
-            include "web_detail/syarat_dan_ketentuan.php";
-            ?>
-
-          </div>
         </div>
       </div>
     </section>
