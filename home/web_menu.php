@@ -16,7 +16,7 @@
           <li><a href="input-mobil.php">TAMBAH MOBIL</a></li>
           <li><a href="daftar-mobil.php">TARIF RENTAL</a></li>
           <li><a href="cara-pesan.php">CARA PESAN</a></li>
-          <li><a href="javascript:void(0)" data-toggle="modal" data-target="#login-signup-modal">Login</a></li>
+          <li><a href="../login.php">Login</a></li>
         </ul>  
       </div>
 
