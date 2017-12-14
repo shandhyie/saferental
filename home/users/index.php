@@ -7,10 +7,10 @@ session_start();
 if ( !isset($_SESSION['user_login']) || 
     ( isset($_SESSION['user_login']) && $_SESSION['user_login'] != 'user' ) ) {
 
-	header('location:./../login.php');
+	header('location:./../../login.php');
 	exit();
 }
 ?>
-<h2>Hallo Admin <?=$_SESSION['nama_lgkp'];?> Apakabar ?</h2>
+<h2>Hallo Admin <?=$_SESSION['nama'];?> Apakabar ?</h2>
 
-<a href="./../logout.php">Logout</a>
+<a href="./../../logout.php">Logout</a>
